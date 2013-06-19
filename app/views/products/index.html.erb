@@ -1,0 +1,29 @@
+<div class="container">
+<h3>Product for sale</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<% @products.each do |product| %>
+					<td><%= product.name %></td>
+					<td><%= product.pricing %></td>
+					<td><%= product.description %></td>
+					<td><button><a href="/products/<%= product.id %>">Show</a></button></td>
+					<td><a href="products/<%= product.id %>/edit" class="btn">Edit</a></td>
+					<form action="products/<%= product.id %>" method="post">
+						<td><input type="submit" value="Delete" class="btn btn-danger"></td>
+						<input type="hidden" name="_method" value="delete" />
+					</form>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<a href="products/new" class="btn">New Product</a>
+
+</div>

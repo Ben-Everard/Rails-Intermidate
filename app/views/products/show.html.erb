@@ -1,0 +1,24 @@
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @product.name %></td>
+				<td><%= @product.pricing %></td>
+				<td><%= @product.description %></td>
+				<td><a href="<%= @product.id %>/edit" class="btn">Edit</a></td>
+				<form action="<%= @product.id %>" method="post">
+					<td><input type="submit" value="Delete" class="btn btn-danger"></td>
+					<input type="hidden" name="_method" value="delete" />
+				</form>
+			</tr>
+		</tbody>
+	</table>
+	<button><a href="/products">Home</a></button>
+</div>
