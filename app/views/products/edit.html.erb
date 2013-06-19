@@ -1,9 +1,16 @@
 <div class="container">
-<form action="/products/<%= @product.id %>/" method="post">
+<!-- <form action="/products/<%= @product.id %>/" method="post">
 	<input type="text" name="product[name]" value="<%= @product.name %>" /><br>
 	<input type="text" name="product[pricing]" value="<%= @product.pricing %>" /><br>
 	<textarea name="product[description]"><%= @product.description %></textarea><br>
 	<input type="hidden" name="_method" value="PUT" />
 	<input type="submit" value="Update Product" />
-</form>
+</form> -->
+	<%= simple_form_for(@product) do |f| %>
+		<%= f.input :name %>
+		<%= f.input :pricing %>
+		<%= f.input :description, :as => :text %>
+		<%= f.button :submit %>
+	<% end %>
+	<%= link_to 'Back', products_path, :class=>"btn" %>
 </div>

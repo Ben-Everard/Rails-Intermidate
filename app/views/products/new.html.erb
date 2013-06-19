@@ -6,5 +6,11 @@
 		<textarea placeholder="Product Description" name="product[description]"></textarea><br>
 		<input type="submit" value="Submit New Product" />
 	</form> -->
-	
+	<%= simple_form_for(@product) do |f| %>
+		<%= f.input :name %>
+		<%= f.input :pricing %>
+		<%= f.input :description, :as => :text %>
+		<%= f.button :submit %>
+	<% end %>
+	<%= link_to 'Back', products_path, :class=>"btn" %>
 </div>

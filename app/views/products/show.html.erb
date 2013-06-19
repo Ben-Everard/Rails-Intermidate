@@ -12,13 +12,10 @@
 				<td><%= @product.name %></td>
 				<td><%= @product.pricing %></td>
 				<td><%= @product.description %></td>
-				<td><a href="<%= @product.id %>/edit" class="btn">Edit</a></td>
-				<form action="<%= @product.id %>" method="post">
-					<td><input type="submit" value="Delete" class="btn btn-danger"></td>
-					<input type="hidden" name="_method" value="delete" />
-				</form>
+				<td><%= link_to 'Edit', edit_product_path(@product), :class=>'btn' %></td>
+				<td><%= link_to 'Delete', @product, :class=>'btn btn-danger', method: :delete, data: {confirm: 'Are you sure'} %>
 			</tr>
 		</tbody>
 	</table>
-	<button><a href="/products">Home</a></button>
+	<%= link_to 'Back', products_path, :class=>"btn" %>
 </div>
