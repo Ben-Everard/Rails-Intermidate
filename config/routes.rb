@@ -1,5 +1,6 @@
 Intermediate::Application.routes.draw do
   resources:products
+  resources:comments, :only => [:create, :index]
 
   
   # The priority is based upon order of creation:
